@@ -30,7 +30,7 @@ public class C04_Assertions {
     }
     @AfterClass
     public static void tearDown() {
-        //driver.close();
+       driver.close();
     }
     @Test
     public void test1(){
@@ -47,7 +47,7 @@ public class C04_Assertions {
     }
     @Test
     public void test3(){
-//Search Box 'in erisilebilir oldugunu test edin (isEnabled())
+        //Search Box 'in erisilebilir oldugunu test edin (isEnabled())
         Assert.assertTrue(driver.findElement(By.xpath("(//*[@id='search'])[3]")).isEnabled());
     }
     @Test
