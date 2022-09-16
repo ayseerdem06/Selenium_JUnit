@@ -1,4 +1,4 @@
-package Odevler;
+package Odevler_Day05;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class Odev1day05 {
+public class Odev1_Login {
     public static void main(String[] args) throws InterruptedException {
          /*
         1. http://zero.webappsecurity.com sayfasina gidin
