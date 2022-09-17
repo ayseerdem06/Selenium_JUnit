@@ -25,29 +25,30 @@ public class Odev3_YanlisEmail {
     static WebDriver driver;
 
     @BeforeClass
-    public static void setup(){
+    public static void setup() {
         WebDriverManager.chromiumdriver().setup();
-        driver=new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.get("http://automationpractice.com/index.php");
+
     }
 
     @AfterClass
     public static void tearDown() throws InterruptedException {
         Thread.sleep(2000);
-        driver.close();
+        // driver.close();
     }
 
     @Test
-    public void test(){
-      //Sign in butonuna basalim
+    public void test() {
+        driver.get("http://automationpractice.com/index.php");
+        //Sign in butonuna basalim
         driver.findElement(By.xpath("//*[@class='login']")).click();
-      //  Email kutusuna @isareti olmayan bir mail yazip enter’a
-      WebElement emailKutusu= driver.findElement(By.xpath("(//*[@class='is_required validate account_input form-control'])[2]"));
-      emailKutusu.sendKeys("ayseazra"+ Keys.ENTER);
-     WebElement sonuc=driver.findElement(By.xpath("//*[text()='Invalid email address.']"));
-     Assert.assertTrue(sonuc.isDisplayed());
+        //  Email kutusuna @isareti olmayan bir mail yazip enter’a
+        WebElement emailKutusu = driver.findElement(By.xpath("//*[@id='email_create']"));
+        emailKutusu.sendKeys("ayseazra" + Keys.ENTER);
+        WebElement sonuc = driver.findElement(By.xpath("//*[text()='Invalid email address.']"));
+        Assert.assertTrue(sonuc.isDisplayed());
 
     }
 
