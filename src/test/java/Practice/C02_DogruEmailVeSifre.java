@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class C02_automationexercise {
+public class C02_DogruEmailVeSifre {
     /*
     1. Launch browser
     2. Navigate to url 'http://automationexercise.com'
@@ -52,8 +52,8 @@ public class C02_automationexercise {
 
     @After
     public void tearDown() throws InterruptedException {
-     //  Thread.sleep(3000);
-     //   driver.close();
+
+       driver.close();
     }
 
     @Test
@@ -63,8 +63,8 @@ public class C02_automationexercise {
 
         //3. Giriş sayfasının başarıyla göründüğünü doğrulayın
         Thread.sleep(2000);
-        WebElement signIn=driver.findElement(By.xpath("//*[@class='carousel-inner'][1]"));
-        Assert.assertTrue(signIn.isDisplayed());
+        Assert.assertTrue(driver.getCurrentUrl().contains("https://automationexercise.com/"));
+
 
         //  4. 'Kayıt / Giriş' düğmesine tıklayın
         driver.findElement(By.xpath("//*[@href='/login']")).click();
@@ -74,7 +74,7 @@ public class C02_automationexercise {
         Assert.assertTrue(girisSayfasi.isDisplayed());
 
         //  6. Doğru e-posta adresini ve şifreyi girin
-        driver.findElement(By.xpath("//*[@data-qa='login-email']")).sendKeys("ayse01@gmail");
+        driver.findElement(By.xpath("//*[@data-qa='login-email']")).sendKeys("ayse02@gmail");
         driver.findElement(By.xpath("//*[@data-qa='login-password']")).sendKeys("1234");
 
         // 7. 'Giriş yap' düğmesine tıklayın

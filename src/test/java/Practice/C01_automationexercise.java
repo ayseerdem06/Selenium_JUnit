@@ -70,7 +70,7 @@ public class C01_automationexercise {
 
     @After
     public void tearDown(){
-      // driver.close();
+      driver.close();
     }
 
     @Test
@@ -79,7 +79,8 @@ public class C01_automationexercise {
         driver.get("http://automationexercise.com");
 
         //3. Ana sayfanın başarıyla görünür olduğunu doğrulayın
-        Assert.assertTrue(driver.findElement(By.xpath("//*[@id='slider']")).isDisplayed());
+        Assert.assertTrue(driver.getCurrentUrl().contains("https://automationexercise.com/"));
+
 
         // 4. 'Kayıt / Giriş' düğmesine tıklayın
         driver.findElement(By.xpath("//*[@href='/login']")).click();
@@ -90,7 +91,7 @@ public class C01_automationexercise {
         // 6. Adı ve e-posta adresini girin
         driver.findElement(By.xpath("//*[@name='name']")).sendKeys("Ayse");
         Thread.sleep(1000);
-        driver.findElement(By.xpath("//*[@data-qa='signup-email']")).sendKeys("ayse01@gmail");
+        driver.findElement(By.xpath("//*[@data-qa='signup-email']")).sendKeys("ayse02@gmail");
         Thread.sleep(1000);
 
 
