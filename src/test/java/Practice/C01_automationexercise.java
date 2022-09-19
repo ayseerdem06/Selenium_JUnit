@@ -2,6 +2,7 @@ package Practice;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -69,7 +70,7 @@ public class C01_automationexercise {
 
     @After
     public void tearDown(){
-       driver.close();
+      // driver.close();
     }
 
     @Test
@@ -78,36 +79,26 @@ public class C01_automationexercise {
         driver.get("http://automationexercise.com");
 
         //3. Ana sayfanın başarıyla görünür olduğunu doğrulayın
-        WebElement homePage = driver.findElement(By.xpath("//*[@id='slider']"));
-        if (homePage.isDisplayed()) {
-            System.out.println("HomePage Test PASSED");
-        } else {
-            System.out.println("HomePage Test FAILED");
-        }
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@id='slider']")).isDisplayed());
 
         // 4. 'Kayıt / Giriş' düğmesine tıklayın
-        driver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a")).click();
+        driver.findElement(By.xpath("//*[@href='/login']")).click();
 
         // 5. 'Yeni Kullanıcı Kaydı!' ifadesinin görünür olduğunu doğrulayın
-        WebElement expectedSignUp=driver.findElement(By.xpath("//*[text()='New User Signup!']"));
-        if(expectedSignUp.isDisplayed()){
-            System.out.println("New User Signup! testi PASSED");
-        }else System.out.println("New User Signup! testi FAILED");
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='New User Signup!']")).isDisplayed());
 
         // 6. Adı ve e-posta adresini girin
         driver.findElement(By.xpath("//*[@name='name']")).sendKeys("Ayse");
         Thread.sleep(1000);
-        driver.findElement(By.xpath("//*[@data-qa='signup-email']")).sendKeys("uhl@gmail");
+        driver.findElement(By.xpath("//*[@data-qa='signup-email']")).sendKeys("ayse01@gmail");
         Thread.sleep(1000);
+
 
         // 7. 'Kaydol' düğmesine tıklayın
         driver.findElement(By.xpath("//*[@data-qa='signup-button']")).click();
 
         // 8. 'HESAP BİLGİLERİNİ GİRİN' seçeneğinin görünür olduğunu doğrulayın
-        WebElement account=driver.findElement(By.xpath("//*[text()='Enter Account Information']"));
-        if(account.isDisplayed()){
-            System.out.println("ENTER ACCOUNT INFORMATION testi PASSED");
-        }else System.out.println("ENTER ACCOUNT INFORMATION testi FAILED");
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Enter Account Information']")).isDisplayed());
 
         // 9. Ayrıntıları doldurun: Unvan, İsim, E-posta, Şifre, Doğum tarihi
         //Unvan
@@ -183,10 +174,7 @@ public class C01_automationexercise {
 
         // 14. "HESAP OLUŞTURULDU!"nun görünür olduğunu doğrulayın
         Thread.sleep(1000);
-        WebElement accountCreat=driver.findElement(By.xpath("//b"));
-        if(accountCreat.isDisplayed()){
-            System.out.println("ACCOUNT CREATED! testi PASSED");
-        }else System.out.println("ACCOUNT CREATED! testi FAILED");
+        Assert.assertTrue(driver.findElement(By.xpath("//b")).isDisplayed());
 
         //15. 'Devam' düğmesine tıklayın
         Thread.sleep(1000);
@@ -194,10 +182,7 @@ public class C01_automationexercise {
 
         //16. "Kullanıcı adı olarak oturum açtı" seçeneğinin görünür olduğunu doğrulayın
         Thread.sleep(1000);
-        WebElement loggedUser=driver.findElement(By.xpath("//*[@class='fa fa-user']"));
-        if(loggedUser.isDisplayed()){
-            System.out.println("Logged in as username testi PASSED");
-        }else System.out.println("Logged in as username testi FAILED");
+        Assert.assertTrue(driver.findElement(By.xpath("//*[@class='fa fa-user']")).isDisplayed());
 
         //17. 'Hesabı Sil' düğmesine tıklayın
         Thread.sleep(1000);
@@ -205,12 +190,12 @@ public class C01_automationexercise {
 
         //18. 'HESAP SİLİNDİ!' ifadesinin görünür olduğunu doğrulayın ve 'Devam' düğmesini tıklayın
         Thread.sleep(1000);
-        WebElement delete=driver.findElement(By.xpath("//*[text()='Are you sure you want to delete this Delete Account?']"));
-        if(delete.isDisplayed()){
-            System.out.println("ACCOUNT DELETED! testi PASSED");
-        }else System.out.println("ACCOUNT DELETED! testi FAILED");
+        Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Are you sure you want to delete this Delete Account?']")).isDisplayed());
+
         Thread.sleep(1000);
         driver.findElement(By.xpath("//*[text()='Delete']")).click();
+
+
 
 
 
