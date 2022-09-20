@@ -39,20 +39,24 @@ public class C04_WindowHandle {
 
     @After
     public void tearDown(){
-      //  driver.quit();
+        driver.quit();
     }
 
     @Test
-    public void test1(){
+    public void test1() throws InterruptedException {
 
         //https://the-internet.herokuapp.com/windows adresine gidin.
         driver.get("https://the-internet.herokuapp.com/windows");
+
         //Sayfadaki textin “Opening a new window” olduğunu doğrulayın.
         Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Opening a new window']")).isDisplayed());
+
         //Sayfa başlığının(title) “The Internet” olduğunu doğrulayın.
         Assert.assertTrue(driver.getTitle().contains("The Internet"));
+
         //Click Here butonuna basın.
         driver.findElement(By.xpath("//*[text()='Click Here']")).click();
+        Thread.sleep(2000);
         List<String> windowList = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(windowList.get(1));
 
@@ -67,11 +71,21 @@ public class C04_WindowHandle {
         }
          */
 
-        //Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunu dogrulayin.
-        //Sayfadaki textin “New Window” olduğunu doğrulayın.
-        //Bir önceki pencereye geri döndükten sonra sayfa başlığının “The Internet” olduğunu  doğrulayın.
 
+        //Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunu dogrulayin.
+        Assert.assertEquals(driver.getTitle(),"New Window");
+
+        //Sayfadaki textin “New Window” olduğunu doğrulayın.
+        Assert.assertTrue(driver.findElement(By.xpath("//h3")).isDisplayed());
+
+        //Bir önceki pencereye geri döndükten sonra sayfa başlığının “The Internet” olduğunu  doğrulayın.
+        Thread.sleep(2000);
+        driver.switchTo().window(windowList.get(0));
+        Assert.assertEquals("The Internet",driver.getTitle());
 
 
     }
 }
+
+
+

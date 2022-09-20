@@ -38,7 +38,7 @@ public class C04_DropDownS {
 
     @After
     public void tearDown(){
-       // driver.close();
+        driver.close();
     }
 
     @Test
