@@ -65,6 +65,8 @@ public class C01_Iframe {
         //    tıklayınız
         driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='a077aa5e']")));   // iframe geçmek için önce locate ettim
         driver.findElement(By.xpath("//*[@src='Jmeter720.png']")).click();
+        driver.switchTo().defaultContent();
+        driver.quit();
 
 
 

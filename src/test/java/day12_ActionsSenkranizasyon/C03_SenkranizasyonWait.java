@@ -1,4 +1,4 @@
-package day12;
+package day12_ActionsSenkranizasyon;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,6 +21,8 @@ public class C03_SenkranizasyonWait extends TestBaseBeforeAfter {
                 imlicitlyWait kullandığımız bu method'da sayfadaki bütün webelementler için
                 max belirttiğimiz süre altında bütün web elementler için bekler
                   */
+
+
         //https://the-internet.herokuapp.com/dynamic_controls adresine gidin.
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
         //Remove butonuna basin.

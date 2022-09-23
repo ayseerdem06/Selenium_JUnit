@@ -1,4 +1,4 @@
-package day12;
+package day12_ActionsSenkranizasyon;
 
 import org.junit.Test;
 import org.openqa.selenium.By;

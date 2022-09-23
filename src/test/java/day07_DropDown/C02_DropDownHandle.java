@@ -47,6 +47,7 @@ public class C02_DropDownHandle {
             System.out.println(w.getText());
         }
         int dropDownList = drops.size();
+        System.out.println(dropDownList);
         int expectedSayi = 45;
         Assert.assertNotEquals(expectedSayi,dropDownList);
     }
