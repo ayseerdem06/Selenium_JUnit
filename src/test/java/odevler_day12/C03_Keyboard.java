@@ -28,25 +28,32 @@ public class C03_Keyboard extends TestBaseBeforeAfter {
         // "Hover over Me First" kutusunun ustune gelin
         WebElement hover= driver.findElement(By.xpath("(//*[@class='dropbtn'])[1]"));
         Actions actions = new Actions(driver);
-        actions.moveToElement(hover);
+        actions.moveToElement(hover).perform();
         Thread.sleep(2000);
 
         //  "Link 1" e tiklayin
-
-        driver.findElement(By.xpath("(//*[@class='list-alert'])[1]")).click();
+        driver.findElement(By.xpath("(//*[text()='Link 1'])[1]")).click();
+        Thread.sleep(2000);
 
         // Popup mesajini yazdirin
-        Thread.sleep(2000);
         System.out.println("Popup Mesaji :"+ driver.switchTo().alert().getText());
 
         //Popup'i tamam diyerek kapatin
-        Thread.sleep(2000);
-        driver.switchTo().alert().accept();
+         driver.switchTo().alert().accept();
 
         // "Click and hold" kutusuna basili tutun
         WebElement click=driver.findElement(By.xpath("//*[text()='Click and Hold!']"));
-        actions.clickAndHold(click);
+        actions.clickAndHold(click).perform();
 
+        //"Click and hold" kutusunda cikan yaziyi yazdirin
+        WebElement yaziElementi= driver.findElement(By.xpath("//*[@id='click-box']"));
+        System.out.println("Yazi elementi :" +yaziElementi.getText());
+        Thread.sleep(2000);
+
+        // "Double click me" butonunu cift tiklayin
+        WebElement doubleElement= driver.findElement(By.xpath("//h2"));
+        actions.doubleClick(doubleElement).perform();
+        Thread.sleep(2000);
 
 
     }
