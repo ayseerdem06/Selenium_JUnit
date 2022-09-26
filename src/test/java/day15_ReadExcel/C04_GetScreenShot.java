@@ -15,19 +15,17 @@ public class C04_GetScreenShot extends TestBaseBeforeAfter {
 
         // Amazon sayfasına gidelim  tum sayfanın resmini alalım
         driver.get("https://amazon.com");
-    /*
-    Bir web sayfanin resmini alabilmek icin TakesScreenshot class'indan obje olusturup
-    gecici bir File class'indan degiskene TakesScreenShot'tan olusturdugum obje'den
-    tss.getScreenshotAs method'unu kullanarak gecici bir file olustururuz
-    */
-
-        TakesScreenshot tss = (TakesScreenshot) driver;
-        File tumSayfaResmi = tss.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(tumSayfaResmi, new File("target/ekranGoruntusu/allPage.jpeg"));
-
+         /*
+        Bir web sayfanın resmini alabilmek için TakesScreenshot class'ın obje oluşturup
+        Geçici bir File class'ından değişkene TakesScreenShot'dan oluşturduğum obje'den getScreenShotAs
+        methonu kullanarak geçici bir file oluştururuz
+         */
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File tumSayfaResmi = ts.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(tumSayfaResmi,new File("target/ekranGoruntusu/AllPage"+tarih+".jpeg"));
 
 
-      //  FileUtils.copyFile(tumSayfaResmi,new File("target/screenShot/"+driver.getTitle()+"AllPage.jpeg"));
-       // getTitle ile yazdırma
+        //FileUtils.copyFile(tumSayfaResmi,new File("target/screenShot/"+driver.getTitle()+"AllPage.jpeg"));
+        //getTitle ile yazdırma
     }
 }
