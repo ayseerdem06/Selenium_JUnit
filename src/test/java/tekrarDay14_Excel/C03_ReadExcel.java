@@ -3,13 +3,10 @@ package tekrarDay14_Excel;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.Test;
-import utilities.TestBaseBeforeAfter;
-
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class C03_ReadExcel extends TestBaseBeforeAfter {
+public class C03_ReadExcel {
 
     @Test
     public void test1() throws IOException {
