@@ -2,6 +2,7 @@ package tekrarDay14_Excel;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.FileInputStream;
@@ -39,8 +40,12 @@ public class C05_ReadExcel {
                     " "+ workbook.getSheet("Sayfa1").getRow(i).getCell(2).toString()+
                     " "+ workbook.getSheet("Sayfa1").getRow(i).getCell(3).toString();
             ulkelerMap.put(key,value);
+
         }
         System.out.println(ulkelerMap);
+
+        // Listede Ghana olduğunu test edin
+        Assert.assertTrue(ulkelerMap.keySet().contains("Ghana"));
 
     }
 }
