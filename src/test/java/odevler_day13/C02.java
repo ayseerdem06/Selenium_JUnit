@@ -11,4 +11,6 @@ public class C02 {
     Örnek: printData (3,5); => 3. satır, 5. Sütundaki veriyi yazdırmalıdır
     yazdirilan datanin olmasi gereken dataya esit oldugunu test edin
      */
+
+
 }

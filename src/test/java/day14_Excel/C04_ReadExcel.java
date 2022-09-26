@@ -33,6 +33,8 @@ public class C04_ReadExcel {
             turkceBaskentler=workbook.getSheet("Sayfa1").getRow(i).getCell(3).toString();
             System.out.println(turkceBaskentler);
 
+
+
         }
 
     }
