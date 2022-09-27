@@ -1,4 +1,4 @@
-package practice_dersi;
+package practice_dersi01;
 
 import org.junit.*;
 
