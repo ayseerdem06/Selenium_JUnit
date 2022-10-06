@@ -25,6 +25,6 @@ public abstract class TestBaseBeforeClassAfterClass {
 
     @AfterClass
     public static void tearDown(){
-        // driver.quit();
+         driver.quit();
     }
 }

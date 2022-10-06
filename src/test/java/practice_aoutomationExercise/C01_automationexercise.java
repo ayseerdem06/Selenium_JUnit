@@ -91,7 +91,7 @@ public class C01_automationexercise {
         // 6. Adı ve e-posta adresini girin
         driver.findElement(By.xpath("//*[@name='name']")).sendKeys("Ayse");
         Thread.sleep(1000);
-        driver.findElement(By.xpath("//*[@data-qa='signup-email']")).sendKeys("ayse02@gmail");
+        driver.findElement(By.xpath("//*[@data-qa='signup-email']")).sendKeys("ayse002@gmail");
         Thread.sleep(1000);
 
 
